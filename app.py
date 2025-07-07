@@ -12,7 +12,7 @@ st.markdown("""
             height: 32px;
         }
         .footer {
-            margin-top: 20px;
+            margin-top: 5px; /* Aqui foi ajustado */
             text-align: center;
         }
     </style>
