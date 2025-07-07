@@ -1,53 +1,26 @@
-import streamlit as st
-import joblib
-import numpy as np
+import streamlit as st 
 
 # Título principal
 st.markdown("<h2 style='text-align: center; color: #004AAD;'>CAIXA VERSO 2025</h2>", unsafe_allow_html=True)
 st.markdown("<h4 style='text-align: center;'>Preditor CAIXA</h4>", unsafe_allow_html=True)
 
-# Campos de entrada
+# Formulário de entrada
 idade = st.text_input("Idade:")
 renda = st.text_input("Renda:")
-estado_civil = st.text_input("Estado Civil:")  # Codificado no treino
-escolaridade = st.text_input("Escolaridade:")  # Codificado no treino
+estado_civil = st.text_input("Estado Civil:")
+escolaridade = st.text_input("Escolaridade:")
 tempo_cliente = st.text_input("Tempo Cliente:")
-usa_app = st.text_input("Usa App?")  # 0 ou 1
-tem_seguro = st.text_input("Tem Seguro?")  # 0 ou 1
-tem_cartao = st.text_input("Tem Cartão?")  # 0 ou 1
+usa_app = st.text_input("Usa App?")
+tem_seguro = st.text_input("Tem Seguro?")
+tem_cartao = st.text_input("Tem Cartão?")
 freq_acesso = st.text_input("Freq. Acesso App:")
-clicou_oferta = st.text_input("Clicou Oferta?")  # 0 ou 1
+clicou_oferta = st.text_input("Clicou Oferta?")
 
-# Botão de previsão
+# Botão de previsão (sem lógica por enquanto)
 if st.button("Prever"):
-    try:
-        # Coletar os dados como float
-        entrada = np.array([[
-            float(idade),
-            float(renda),
-            int(estado_civil),
-            int(escolaridade),
-            float(tempo_cliente),
-            int(usa_app),
-            int(tem_seguro),
-            int(tem_cartao),
-            float(freq_acesso),
-            int(clicou_oferta)
-        ]])
+    st.success("Previsão realizada com sucesso! **Consulte o Gestor**")  # Placeholder
 
-        # Carregar o modelo
-        modelo = joblib.load('modelo_treinado.pkl')
-
-        # Fazer a previsão
-        pred = modelo.predict(entrada)
-
-        # Interpretar resultado
-        if pred[0] == 1:
-            st.success("✅ O cliente **vai efetuar uma compra**.")
-        else:
-            st.warning("⚠️ O cliente **não vai efetuar uma compra**.")
-    
-    # Rodapé
+# Rodapé
 st.markdown("""
     <div style='text-align: center; margin-top: 30px;'>
         <strong>Astronauta Valtair Martins de Oliveira</strong><br>
