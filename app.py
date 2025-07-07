@@ -47,10 +47,7 @@ if st.button("Prever"):
         else:
             st.warning("⚠️ O cliente **não vai efetuar uma compra**.")
     
-    except Exception as e:
-        st.error(f"Erro na previsão: {e}")
-
-# Rodapé
+    # Rodapé
 st.markdown("""
     <div style='text-align: center; margin-top: 30px;'>
         <strong>Astronauta Valtair Martins de Oliveira</strong><br>
