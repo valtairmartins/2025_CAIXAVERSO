@@ -1,15 +1,15 @@
 import streamlit as st
 
-# Estilo customizado para reduzir a largura do formulário
+# Estilo customizado para remover o espaço superior e ajustar layout
 st.markdown("""
     <style>
+        /* Remove espaço superior */
+        .block-container {
+            padding-top: 1rem;
+        }
         .stTextInput > div > div > input {
             font-size: 14px;
             height: 32px;
-        }
-        .container {
-            max-width: 600px;
-            margin: auto;
         }
         .footer {
             margin-top: 20px;
