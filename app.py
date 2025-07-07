@@ -18,7 +18,7 @@ clicou_oferta = st.text_input("Clicou Oferta?")
 
 # Botão de previsão (sem lógica por enquanto)
 if st.button("Prever"):
-    st.success("Previsão realizada com sucesso! **Consulte o Gestor**")  # Placeholder
+    st.success("Previsão realizada com sucesso! Verifique o resultado no sistema!")  # Placeholder
 
 # Rodapé
 st.markdown("""
