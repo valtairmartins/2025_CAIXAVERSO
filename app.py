@@ -3,6 +3,7 @@ import streamlit as st
 # Estilo customizado para remover o espaço superior e ajustar layout
 st.markdown("""
     <style>
+        /* Remove espaço superior */
         .block-container {
             padding-top: 1rem;
         }
@@ -11,7 +12,7 @@ st.markdown("""
             height: 32px;
         }
         .footer {
-            margin-top: 5px;
+            margin-top: 5px; /* Aqui foi ajustado */
             text-align: center;
         }
     </style>
@@ -33,23 +34,16 @@ with col1:
 
 with col2:
     renda = st.text_input("Renda Mensal (R$)")
-    escolaridade = st.text_input("Escolaridade (medio/superior)")
+    escolaridade = st.text_input("Escolaridade (Medio/Superior)")
     usa_app = st.text_input("Usa o App? (sim/não)")
     tem_cartao = st.text_input("Possui Cartão? (sim/não)")
     clicou_oferta = st.text_input("Clicou em Oferta? (sim/não)")
 
 # Botão de previsão
 if st.button("Prever"):
-    if all([idade, renda, estado_civil, escolaridade, tempo_cliente, freq_acesso,
-            tem_seguro, usa_app, tem_cartao, clicou_oferta]):
-        if clicou_oferta.lower() == "sim":
-            st.success("✅ Este cliente tem alta chance de comprar o produto!")
-        else:
-            st.warning("⚠️ Este cliente provavelmente **não** comprará o produto.")
-    else:
-        st.error("Por favor, preencha **todos os campos** para fazer a previsão.")
+    st.success("Este cliente tem potencial para realizar uma compra!")
 
-# Rodapé
+# Rodapé logo abaixo do botão
 st.markdown("""
     <div class='footer'>
         <strong>Astronauta Valtair Martins de Oliveira</strong><br>
