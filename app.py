@@ -1,75 +1,53 @@
 import streamlit as st
-import numpy as np
-import joblib
 
-# Carrega o modelo
-modelo = joblib.load("modelo_treinado.pkl")
-
-# Dicionários de mapeamento
-map_binario = {"sim": 1, "não": 0}
-map_estado_civil = {"solteiro": 0, "casado": 1}
-map_escolaridade = {"medio": 0, "superior": 1}
-
-# Estilo customizado
-st.set_page_config(page_title="Preditor de Vendas CAIXA", layout="centered")
+# Estilo customizado para remover o espaço superior e ajustar layout
 st.markdown("""
     <style>
-        .block-container { padding-top: 1.5rem; }
-        .stTextInput > div > div > input { font-size: 14px; height: 36px; }
-        .footer { margin-top: 20px; text-align: center; font-size: 14px; color: #666; }
+        .block-container {
+            padding-top: 1rem;
+        }
+        .stTextInput > div > div > input {
+            font-size: 14px;
+            height: 32px;
+        }
+        .footer {
+            margin-top: 5px;
+            text-align: center;
+        }
     </style>
 """, unsafe_allow_html=True)
 
-# Cabeçalho
+# Cabeçalho centralizado
 st.markdown("<h2 style='text-align: center; color: #004AAD;'>CAIXA VERSO 2025</h2>", unsafe_allow_html=True)
 st.markdown("<h4 style='text-align: center;'>Preditor Inteligente de Vendas CAIXA</h4>", unsafe_allow_html=True)
 
-# Formulário dividido
+# Reduzir o formulário usando colunas
 col1, col2 = st.columns(2)
 
 with col1:
-    idade = st.number_input("Idade", min_value=18, max_value=100, step=1)
-    estado_civil = st.selectbox("Estado Civil", ["solteiro", "casado"])
-    tempo_cliente = st.number_input("Tempo como Cliente (anos)", min_value=0.0, max_value=50.0, step=0.1)
-    tem_seguro = st.selectbox("Possui Seguro?", ["sim", "não"])
-    freq_acesso = st.number_input("Frequência de Acesso ao App (mês)", min_value=0.0, max_value=100.0, step=0.1)
+    idade = st.text_input("Idade (em anos)")
+    estado_civil = st.text_input("Estado Civil (solteiro/casado)")
+    tempo_cliente = st.text_input("Tempo como Cliente (em anos)")
+    tem_seguro = st.text_input("Possui Seguro? (sim/não)")
+    freq_acesso = st.text_input("Frequência de Acesso ao App")
 
 with col2:
-    renda = st.number_input("Renda Mensal (R$)", min_value=0.0, step=100.0)
-    escolaridade = st.selectbox("Escolaridade", ["medio", "superior"])
-    usa_app = st.selectbox("Usa o App?", ["sim", "não"])
-    tem_cartao = st.selectbox("Possui Cartão?", ["sim", "não"])
-    clicou_oferta = st.selectbox("Clicou em Oferta?", ["sim", "não"])
+    renda = st.text_input("Renda Mensal (R$)")
+    escolaridade = st.text_input("Escolaridade (medio/superior)")
+    usa_app = st.text_input("Usa o App? (sim/não)")
+    tem_cartao = st.text_input("Possui Cartão? (sim/não)")
+    clicou_oferta = st.text_input("Clicou em Oferta? (sim/não)")
 
 # Botão de previsão
 if st.button("Prever"):
-    try:
-        # Organiza os dados conforme o modelo
-        entrada = np.array([[
-            idade,
-            renda,
-            map_estado_civil[estado_civil],
-            map_escolaridade[escolaridade],
-            tempo_cliente,
-            map_binario[usa_app],
-            map_binario[tem_seguro],
-            map_binario[tem_cartao],
-            freq_acesso,
-            map_binario[clicou_oferta]
-        ]])
-
-        # Faz a previsão
-        pred = modelo.predict(entrada)[0]
-        prob = modelo.predict_proba(entrada)[0][pred]
-
-        # Mostra o resultado
-        if pred == 1:
-            st.success(f"✅ Este cliente tem alta chance de comprar o produto (confiança: {prob:.0%})!")
+    if all([idade, renda, estado_civil, escolaridade, tempo_cliente, freq_acesso,
+            tem_seguro, usa_app, tem_cartao, clicou_oferta]):
+        if clicou_oferta.lower() == "sim":
+            st.success("✅ Este cliente tem alta chance de comprar o produto!")
         else:
-            st.warning(f"⚠️ Este cliente provavelmente **não** comprará o produto (confiança: {prob:.0%}).")
-
-    except Exception as e:
-        st.error(f"Erro na previsão: {str(e)}")
+            st.warning("⚠️ Este cliente provavelmente **não** comprará o produto.")
+    else:
+        st.error("Por favor, preencha **todos os campos** para fazer a previsão.")
 
 # Rodapé
 st.markdown("""
