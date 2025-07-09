@@ -1,31 +1,35 @@
 import streamlit as st
+import numpy as np
+import joblib
 
+# Configuração da página
 st.set_page_config(page_title="CAIXA VERSO", layout="centered")
 
+# Carrega o modelo
+modelo = joblib.load("modelo_treinado.pkl")
+
+# Título
 st.markdown("## CAIXA VERSO 2025")
 st.markdown("#### Preditor Inteligente de Vendas")
 
-# Entradas em duas colunas
-col1, col2 = st.columns(2)
-with col1:
-    idade = st.text_input("Idade")
-    estado_civil = st.text_input("Estado Civil")
-    tempo_cliente = st.text_input("Tempo como Cliente")
-    tem_seguro = st.text_input("Tem Seguro?")
-    freq_acesso = st.text_input("Frequência no App")
-with col2:
-    renda = st.text_input("Renda")
-    escolaridade = st.text_input("Escolaridade")
-    usa_app = st.text_input("Usa App?")
-    tem_cartao = st.text_input("Tem Cartão?")
-    clicou_oferta = st.text_input("Clicou em Oferta?")
+# Entradas
+idade = st.number_input("Idade", min_value=18, max_value=100, step=1)
+usa_app = st.checkbox("Usa o App da CAIXA?")  # Retorna True ou False
 
 # Botão de previsão
 if st.button("Prever"):
-    if clicou_oferta.lower() == "sim":
-        st.success("✅ Alta chance de compra!")
-    else:
-        st.warning("⚠️ Provavelmente não comprará.")
+    entrada = np.array([[idade, usa_app]], dtype=object)
+
+    try:
+        pred = modelo.predict(entrada)[0]
+        prob = modelo.predict_proba(entrada)[0][pred]
+
+        if pred == 1:
+            st.success(f"✅ Alta chance de compra! (confiança: {prob:.0%})")
+        else:
+            st.warning(f"⚠️ Provavelmente não comprará. (confiança: {prob:.0%})")
+    except Exception as e:
+        st.error(f"Erro ao prever: {e}")
 
 # Rodapé
 st.markdown("---")
