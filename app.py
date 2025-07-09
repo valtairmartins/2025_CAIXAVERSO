@@ -14,8 +14,8 @@ st.markdown("#### Previsão Inteligente de Vendas")
 
 # Entradas
 idade = st.number_input("Idade", min_value=18, max_value=100, step=1)
-usa_app = st.checkbox("Usa o App da CAIXA?")  # Retorna True ou False
-usa_app_int = int(usa_app)  # converte para 0 ou 1
+usa_app = st.checkbox("Usa o App da CAIXA?")
+usa_app_int = int(usa_app)
 
 # Botão de previsão
 if st.button("Prever"):
@@ -23,7 +23,7 @@ if st.button("Prever"):
 
     try:
         pred = modelo.predict(entrada)[0]
-        prob = modelo.predict_proba(entrada)[0][pred]
+        prob = float(modelo.predict_proba(entrada)[0][pred])  # 👈 conversão explícita aqui
 
         if pred == 1:
             st.success(f"✅ Alta chance de compra! (confiança: {prob:.0%})")
