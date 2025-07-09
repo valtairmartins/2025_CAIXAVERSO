@@ -10,15 +10,16 @@ modelo = joblib.load("modelo_treinado.pkl")
 
 # Título
 st.markdown("## CAIXA VERSO 2025")
-st.markdown("#### Preditor Inteligente de Vendas")
+st.markdown("#### Previsão Inteligente de Vendas")
 
 # Entradas
 idade = st.number_input("Idade", min_value=18, max_value=100, step=1)
 usa_app = st.checkbox("Usa o App da CAIXA?")  # Retorna True ou False
+usa_app_int = int(usa_app)  # converte para 0 ou 1
 
 # Botão de previsão
 if st.button("Prever"):
-    entrada = np.array([[idade, usa_app]], dtype=object)
+    entrada = np.array([[idade, usa_app_int]], dtype=float)
 
     try:
         pred = modelo.predict(entrada)[0]
