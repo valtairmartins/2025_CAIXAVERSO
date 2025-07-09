@@ -23,9 +23,10 @@ if st.button("Prever"):
 
     try:
         pred = modelo.predict(entrada)[0]
-        prob = float(modelo.predict_proba(entrada)[0][pred])  # 👈 conversão explícita aqui
+        pred_int = int(pred)  # ⬅️ garante escalar
+        prob = float(modelo.predict_proba(entrada)[0][pred_int])
 
-        if pred == 1:
+        if pred_int == 1:
             st.success(f"✅ Alta chance de compra! (confiança: {prob:.0%})")
         else:
             st.warning(f"⚠️ Provavelmente não comprará. (confiança: {prob:.0%})")
