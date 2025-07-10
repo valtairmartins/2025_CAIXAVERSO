@@ -40,7 +40,7 @@ Apresentar, de forma prática e funcional, o conhecimento completo sobre as etap
 
 ---
 
-Modelos Treinados
+## Modelos Treinados
 Foram testados e comparados diversos algoritmos de classificação com ajuste de hiperparâmetros:
 
 K-Nearest Neighbors (KNN)
@@ -57,7 +57,7 @@ AdaBoost
 
 BaggingClassifier
 
-Técnicas Aplicadas
+## Técnicas Aplicadas
 SelectKBest para seleção de atributos
 
 StandardScaler para normalização
