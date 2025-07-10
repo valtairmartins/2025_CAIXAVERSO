@@ -36,28 +36,6 @@ Apresentar, de forma prática e funcional, o conhecimento completo sobre as etap
 
 ---
 
-## Setup do Ambiente
-
-Comandos utilizados no setup:
-
-```bash
-# Atualização dos pacotes base
-conda update conda
-conda update anaconda
-conda install python=3.10
-conda update jupyter
-pip install --upgrade notebook
-
-# Ambiente virtual para app em produção
-conda create -n py313 python=3.13
-conda activate py313
-
-# Instalação de dependências
-pip install streamlit scikit-learn pandas numpy joblib
-
-# Executar localmente
-streamlit run app.py
-
 ## Modelos Treinados
 Foram testados e comparados diversos algoritmos de classificação com ajuste de hiperparâmetros:
 
@@ -87,4 +65,27 @@ GridSearchCV para otimização dos modelos
 # Deploy da Aplicação
 O sistema foi publicado na plataforma Streamlit Cloud e pode ser acessado aqui:
 [Acesse a aplicação](https://astronautacaixaverso.streamlit.app/)
+
+## Setup do Ambiente
+
+Comandos utilizados no setup:
+
+```bash
+# Atualização dos pacotes base
+conda update conda
+conda update anaconda
+conda install python=3.10
+conda update jupyter
+pip install --upgrade notebook
+
+# Ambiente virtual para app em produção
+conda create -n py313 python=3.13
+conda activate py313
+
+# Instalação de dependências
+pip install streamlit scikit-learn pandas numpy joblib
+
+# Executar localmente
+streamlit run app.py
+
 
