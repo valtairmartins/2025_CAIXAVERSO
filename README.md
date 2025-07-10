@@ -40,7 +40,7 @@ Apresentar, de forma prática e funcional, o conhecimento completo sobre as etap
 
 ---
 
-## Setup do Ambiente
+##  Setup do Ambiente
 
 Comandos utilizados no setup:
 
@@ -62,8 +62,7 @@ pip install streamlit scikit-learn pandas numpy joblib
 # Executar localmente
 streamlit run app.py
 
-
-# Modelos Treinados
+Modelos Treinados
 Foram testados e comparados diversos algoritmos de classificação com ajuste de hiperparâmetros:
 
 K-Nearest Neighbors (KNN)
@@ -80,12 +79,11 @@ AdaBoost
 
 BaggingClassifier
 
-# Técnicas aplicadas:
+Técnicas Aplicadas
+SelectKBest para seleção de atributos
 
-SelectKBest para seleção de atributos;
+StandardScaler para normalização
 
-StandardScaler para normalização;
+LabelEncoder para tratamento de variáveis categóricas
 
-LabelEncoder para tratamento de variáveis categóricas;
-
-GridSearchCV para otimização dos modelos.
+GridSearchCV para otimização dos modelos
