@@ -1,6 +1,6 @@
 # Sistema de Previsão de Vendas de Produtos — CAIXAVERSO
 
-![banner]([https://github.com/valtairmartins/CAIXAVERSO/raw/main/imagens/banner_caixaverso.png)
+![banner](https://github.com/valtairmartins/CAIXAVERSO/blob/main/banner_caixaverso.png)
 
 > Projeto desenvolvido como parte do processo seletivo para a **Imersão CAIXAVERSO**, demonstrando domínio prático de **Machine Learning** aplicado a um contexto bancário realista, com foco em **open finance**, **fidelização de clientes** e **campanhas personalizadas**.
 
