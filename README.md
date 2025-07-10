@@ -60,9 +60,9 @@ StandardScaler para normalização
 
 LabelEncoder para tratamento de variáveis categóricas
 
+GridSearchCV para otimização dos modelos
+
 # Deploy da Aplicação
 O sistema foi publicado na plataforma Streamlit Cloud e pode ser acessado aqui:
 [Acesse a aplicação](https://astronautacaixaverso.streamlit.app/)
 
-
-GridSearchCV para otimização dos modelos
