@@ -66,6 +66,8 @@ GridSearchCV para otimização dos modelos
 O sistema foi publicado na plataforma Streamlit Cloud e pode ser acessado aqui:
 [Acesse a aplicação](https://astronautacaixaverso.streamlit.app/)
 
+![banner](https://github.com/valtairmartins/CAIXAVERSO/blob/main/App_Previsoes_Vendas.png)
+
 ## Setup do Ambiente
 
 Comandos utilizados no setup:
