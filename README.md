@@ -6,10 +6,6 @@
 
 ---
 
-# Deploy da Aplicação
-O sistema foi publicado na plataforma Streamlit Cloud e pode ser acessado aqui:
-[Acesse a aplicação](https://astronautacaixaverso.streamlit.app/)
-
 ## Objetivo
 
 Apresentar, de forma prática e funcional, o conhecimento completo sobre as etapas do ciclo de vida de um projeto de **Machine Learning em produção**, com ênfase em:
@@ -63,5 +59,10 @@ SelectKBest para seleção de atributos
 StandardScaler para normalização
 
 LabelEncoder para tratamento de variáveis categóricas
+
+# Deploy da Aplicação
+O sistema foi publicado na plataforma Streamlit Cloud e pode ser acessado aqui:
+[Acesse a aplicação](https://astronautacaixaverso.streamlit.app/)
+
 
 GridSearchCV para otimização dos modelos
