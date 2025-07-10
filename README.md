@@ -59,7 +59,7 @@ pip install streamlit scikit-learn pandas numpy joblib
 streamlit run app.py
 
 
-Modelos Treinados
+# Modelos Treinados
 Foram testados e comparados diversos algoritmos de classificação com ajuste de hiperparâmetros:
 
 K-Nearest Neighbors (KNN)
@@ -76,7 +76,7 @@ AdaBoost
 
 BaggingClassifier
 
-Técnicas aplicadas:
+# Técnicas aplicadas:
 
 SelectKBest para seleção de atributos;
 
@@ -86,7 +86,7 @@ LabelEncoder para tratamento de variáveis categóricas;
 
 GridSearchCV para otimização dos modelos.
 
-Deploy da Aplicação
+# Deploy da Aplicação
 O sistema foi publicado na plataforma Streamlit Cloud e pode ser acessado aqui:
 
-👉 Acesse a aplicação
+👉 [Acesse a aplicação](https://astronautacaixaverso.streamlit.app/)
