@@ -1,6 +1,6 @@
 # Sistema de Previsão de Vendas de Produtos — CAIXAVERSO
 
-![banner](https://github.com/valtairmartins/CAIXAVERSO/raw/main/imagens/banner_caixaverso.png)
+![banner]([https://github.com/valtairmartins/CAIXAVERSO/raw/main/imagens/banner_caixaverso.png)
 
 > Projeto desenvolvido como parte do processo seletivo para a **Imersão CAIXAVERSO**, demonstrando domínio prático de **Machine Learning** aplicado a um contexto bancário realista, com foco em **open finance**, **fidelização de clientes** e **campanhas personalizadas**.
 
@@ -89,4 +89,4 @@ GridSearchCV para otimização dos modelos.
 # Deploy da Aplicação
 O sistema foi publicado na plataforma Streamlit Cloud e pode ser acessado aqui:
 
-👉 [Acesse a aplicação](https://astronautacaixaverso.streamlit.app/)
+👉 ![Acesse a aplicação](https://astronautacaixaverso.streamlit.app/)
